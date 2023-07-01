@@ -1,4 +1,0 @@
-#!/bin/sh
-branch_name=feature_SUB_2023_0292992
-commit_msg=$(cat $1)
-echo "$branch_name: $commit_msg" > $1
