@@ -9,13 +9,16 @@ import (
 
 func setCommitTitleByBranch(currentDir string) {
 	commitTitle := files.GetCommitTitle(currentDir)
-	commitHook := files.ReplaceDefaultValue(commitTitle)
-	files.WriteToFile(currentDir, commitHook)
+	generateFile(currentDir, commitTitle)
 }
 
 func setCommitTitleByMessage(currentDir, message string) {
+	generateFile(currentDir, message)
+}
+
+func generateFile(dir, message string) {
 	commitHook := files.ReplaceDefaultValue(message)
-	files.WriteToFile(currentDir, commitHook)
+	files.WriteToFile(dir, commitHook)
 }
 
 func main() {
