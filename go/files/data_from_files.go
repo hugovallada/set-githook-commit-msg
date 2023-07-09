@@ -12,13 +12,13 @@ import (
 func GetCommitTitle(currentDir string) string {
 	data, err := os.ReadFile(fmt.Sprintf("%s/.git/HEAD", currentDir))
 	checker.Check(err)
-	branchName := getBranchName(string(data))
+	branchName := GetBranchName(string(data))
 	branchType, branchID := getTypeAndId(branchName)
 	currentBranch := branch.NewBranch(branchType, branchID)
 	return currentBranch.GetCommitTitle()
 }
 
-func getBranchName(branch string) string {
+func GetBranchName(branch string) string {
 	return strings.SplitAfter(branch, "heads/")[1]
 }
 
