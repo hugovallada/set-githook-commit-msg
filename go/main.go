@@ -23,6 +23,10 @@ func init() {
 	flag.BoolVar(&start, "i", false, "Start new branch")
 	flag.StringVar(&branchName, "b", "", "New branch")
 	flag.BoolVar(&deleteBranch, "db", false, "Delete current branch")
+	flag.Usage = func() {
+		fmt.Println("Usage of branchRuler:")
+		flag.PrintDefaults()
+	}
 	flag.Parse()
 }
 
