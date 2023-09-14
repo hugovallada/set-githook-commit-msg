@@ -38,7 +38,7 @@ func (fp *fileProcessor) getBranchName() *fileProcessor {
 	}
 	data, err := os.ReadFile(fmt.Sprintf("%s/.git/HEAD", fp.fileDir))
 	checker.Check(err)
-	fp.branchName = strings.SplitAfter(string(data), "heads/")[1]
+	fp.branchName = GetBranchName(string(data))
 	return fp
 }
 
